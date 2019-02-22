@@ -1,0 +1,27 @@
+import * as React from "react";
+import FormView from "../FormView";
+import Header from "../Header";
+import styles from "./MainView.module.scss";
+
+export interface Props {
+  children?: React.ReactNode;
+}
+
+export interface State {}
+
+export default class MainView extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {};
+  }
+
+  public render() {
+    return (
+      <div className={styles.main_view}>
+        <Header />
+        <FormView />
+      </div>
+    );
+  }
+}
