@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+class BusinessType(models.Model):
+    operation_type = models.CharField(max_length=50)
+    profile = models.CharField(max_length=50)
+    yearly_max_revenue = models.IntegerField()
