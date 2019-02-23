@@ -1,3 +1,4 @@
+import CssBaseline from "@material-ui/core/CssBaseline";
 import { ConnectedRouter } from "connected-react-router";
 import { History } from "history";
 import * as React from "react";

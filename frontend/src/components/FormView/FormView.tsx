@@ -1,4 +1,6 @@
 import * as React from "react";
+import Form from "../Form";
+import styles from "./FormView.module.scss";
 
 export interface Props {
   children?: React.ReactNode;
@@ -18,7 +20,9 @@ export default class FormView extends React.Component<Props, State> {
 
   public render() {
     return (
-      <div>Form</div>
+      <div className={styles.form_view}>
+        <Form/>
+      </div>
     );
   }
 }

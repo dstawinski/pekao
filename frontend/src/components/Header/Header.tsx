@@ -1,6 +1,6 @@
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
-
 import * as React from "react";
+import styles from "./Header.module.scss";
 
 export interface Props {
   children?: React.ReactNode;
@@ -17,18 +17,20 @@ export default class Header extends React.Component<Props, State> {
 
   public render() {
     return (
-      <div>
-        <AppBar position="static" color="default">
-          <Toolbar>
-            <Typography variant="h6" color="inherit">
-              Eventify
-            </Typography>
-            <Typography variant="h6" color="inherit">
-              by d2VjYW1lZm9yZm9vZC4=
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      </div>
+      <AppBar
+        position="static"
+        color="default"
+        classes={{ root: styles.appbar }}
+      >
+        <Toolbar classes={{ root: styles.header }}>
+          {/* <div className={styles.main_title}>Centrum wiedzy PEKAO</div> */}
+          <div className={styles.logo}>
+            <span className={styles.word1}>The</span>
+            <span className={styles.word2}>Placer</span>
+          </div>
+          <div className={styles.authorship}>by d2VjYW1lZm9yZm9vZC4=</div>
+        </Toolbar>
+      </AppBar>
     );
   }
 }

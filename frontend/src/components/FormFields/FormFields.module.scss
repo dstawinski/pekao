@@ -1,0 +1,14 @@
+.form_fields{
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  padding: 0 20px;
+}
+
+.submit_btn {
+  height: 40px;
+  width: 80%;
+  align-self: center;
+  justify-self: center;
+}

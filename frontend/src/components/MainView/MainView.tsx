@@ -1,3 +1,4 @@
+import { CssBaseline } from "@material-ui/core";
 import * as React from "react";
 import FormView from "../FormView";
 import Header from "../Header";
@@ -18,10 +19,13 @@ export default class MainView extends React.Component<Props, State> {
 
   public render() {
     return (
-      <div className={styles.main_view}>
-        <Header />
-        <FormView />
-      </div>
+      <React.Fragment>
+        <CssBaseline />
+        <div className={styles.main_view}>
+          <Header />
+          <FormView />
+        </div>
+      </React.Fragment>
     );
   }
 }
