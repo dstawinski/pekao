@@ -1,0 +1,14 @@
+﻿TxnKod,TxnKod_desc
+2000,PAPIER - Zakup
+2010,POS - Zakup
+2012,POS - Zakup (EMV)
+2018,POS - Zakup (pł. mobilna)
+2100,PAPIER - Zwrot
+2110,POS - Zwrot
+2112,POS - Zwrot (EMV)
+2118,POS - Zwrot  (pł. mobilna)
+3000,PAPIER - Unieważnienie zwrotu
+3010,POS - Unieważnienie zwrotu
+3100,PAPIER - Unieważnienie zakupu
+3110,POS - Unieważnienie zakupu
+3300,PAPIER - Zwrot

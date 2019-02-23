@@ -1,0 +1,8 @@
+﻿TypKarty,Region,Region_desc
+M,N,Interregional
+M,P,Domestic
+M,S,Intraregional
+M,T,Interregional
+V,E,Intraregional
+V,P,Domestic
+V,S,Interregional

@@ -1,0 +1,9 @@
+﻿TypKarty,TypePayment,Type_Payment_desc
+M,D,Debit
+M,K,Credit
+M,P,Prepaid
+V,D,Debit
+V,H,Charge
+V,K,Credit
+V,P,Prepaid
+V,R,Deferred Debit
