@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import * as React from "react";
 import { getFormInputs } from "../../utils/getFormInputs";
+import { postFormData } from "../../utils/postFormData";
 import styles from "./FormFields.module.scss";
 
 export interface Props {
@@ -16,7 +17,6 @@ export interface Props {
 }
 
 export interface State {
-  age: number;
   shopTypes: string[];
   selectedShopType: string;
   targetTypes: string[];
@@ -29,7 +29,6 @@ export default class FormFields extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      age: 10,
       shopTypes: [],
       selectedShopType: "",
       targetTypes: [],
@@ -40,15 +39,37 @@ export default class FormFields extends React.Component<Props, State> {
   }
 
   public async getFormInputs() {
-    const response = await getFormInputs();
-    console.log(response);
-    this.setState({ shopTypes: ["Typ1", "Typ2", "Typ3"] });
-    this.setState({ targetTypes: ["Typ1", "Typ2", "Typ3"] });
-    this.setState({ revenueTypes: ["Typ1", "Typ2", "Typ3"] });
+    const data = await getFormInputs();
+    console.log(data);
+    this.setState({
+      shopTypes: data.operation_types.map((obj: any) => obj.name),
+    });
+    this.setState({ targetTypes: data.profiles.map((obj: any) => obj.name) });
+    return this.setState({
+      revenueTypes: data.yearly_max_revenues.map((obj: any) => obj.revenue),
+    });
   }
-
   public async componentDidMount() {
     await this.getFormInputs();
+    return;
+  }
+
+  public handleChange(name: string) {
+    return (event: React.SyntheticEvent) => {
+      console.log(event.target);
+      this.setState({
+        ...this.state,
+        [name]: (event.target as any).value,
+      });
+    };
+  }
+
+  public async handleSubmit(e: any) {
+    await postFormData({
+      operation_type: this.state.selectedShopType,
+      profile: this.state.selectedTargetType,
+      revenue: this.state.selectedRevenueType,
+    });
     return;
   }
 
@@ -61,7 +82,7 @@ export default class FormFields extends React.Component<Props, State> {
           </InputLabel>
           <Select
             value={this.state.selectedShopType}
-            onChange={() => {}}
+            onChange={this.handleChange("selectedShopType")}
             input={<Input name="shoptype" id="shoptype-auto-width" />}
             autoWidth
             required
@@ -76,7 +97,7 @@ export default class FormFields extends React.Component<Props, State> {
           <InputLabel htmlFor="targettypes-auto-width">Cel</InputLabel>
           <Select
             value={this.state.selectedTargetType}
-            onChange={() => {}}
+            onChange={this.handleChange("selectedTargetType")}
             input={<Input name="targettype" id="targettype-auto-width" />}
             autoWidth
             required
@@ -91,7 +112,7 @@ export default class FormFields extends React.Component<Props, State> {
           <InputLabel htmlFor="revenue-auto-width">Obroty</InputLabel>
           <Select
             value={this.state.selectedRevenueType}
-            onChange={() => {}}
+            onChange={this.handleChange("selectedRevenueType")}
             input={<Input name="revenue" id="revenue-auto-width" />}
             autoWidth
             required
@@ -106,6 +127,14 @@ export default class FormFields extends React.Component<Props, State> {
           variant="contained"
           color="secondary"
           className={styles.submit_btn}
+          onClick={(e) => {
+            this.handleSubmit(e);
+            this.setState({
+              selectedShopType: "",
+              selectedTargetType: "",
+              selectedRevenueType: "",
+            });
+          }}
         >
           ZAPLANUJ
         </Button>

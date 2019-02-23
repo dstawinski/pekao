@@ -1,9 +1,23 @@
-.form {
-  height: 80vh;
-  width: 30vw;
-  background: white;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  display: grid;
-  grid-template-rows: 60px auto;
-  grid-template-columns: 1fr;
+@media only screen and (max-width: 600px) {
+  .form {
+    height: 90%;
+    width: 90%;
+    background: white;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    display: grid;
+    grid-template-rows: 60px auto;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .form {
+    height: 80vh;
+    width: 30vw;
+    background: white;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    display: grid;
+    grid-template-rows: 60px auto;
+    grid-template-columns: 1fr;
+  }
 }
