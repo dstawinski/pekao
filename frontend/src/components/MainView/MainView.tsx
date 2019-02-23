@@ -23,7 +23,7 @@ export default class MainView extends React.Component<Props, State> {
         <CssBaseline />
         <div className={styles.main_view}>
           <Header />
-          <FormView />
+          {this.props.children}
         </div>
       </React.Fragment>
     );

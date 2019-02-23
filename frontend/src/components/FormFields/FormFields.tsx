@@ -8,6 +8,7 @@ import {
   Select,
 } from "@material-ui/core";
 import * as React from "react";
+import { Link } from "react-router-dom";
 import { getFormInputs } from "../../utils/getFormInputs";
 import { postFormData } from "../../utils/postFormData";
 import styles from "./FormFields.module.scss";
@@ -123,21 +124,24 @@ export default class FormFields extends React.Component<Props, State> {
           </Select>
           <FormHelperText>Wybierz wielkość swoich obrotów</FormHelperText>
         </FormControl>
-        <Button
-          variant="contained"
-          color="secondary"
-          className={styles.submit_btn}
-          onClick={(e) => {
-            this.handleSubmit(e);
-            this.setState({
-              selectedShopType: "",
-              selectedTargetType: "",
-              selectedRevenueType: "",
-            });
+        <Link
+          to={{
+            pathname: "/result",
+            selections: {
+              operation_type: this.state.selectedShopType,
+              profile: this.state.selectedTargetType,
+              revenue: this.state.selectedRevenueType,
+            },
           }}
         >
-          ZAPLANUJ
-        </Button>
+          <Button
+            variant="contained"
+            color="secondary"
+            className={styles.submit_btn}
+          >
+            ZAPLANUJ
+          </Button>
+        </Link>
       </div>
     );
   }

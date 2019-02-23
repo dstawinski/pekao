@@ -23,19 +23,29 @@
 }
 @media only screen and (max-width: 600px) {
   .logo {
+    max-height: 40px;
     font: 2rem "Arial Narrow", sans-serif; /* I picked this font because it's the closest looking 'web safe' font http://cssfontstack.com/ */
     color: #fefefe;
     text-transform: uppercase;
     letter-spacing: -4px;
+
+    > img {
+      max-height: 40px;
+    }
   }
 }
 
 @media only screen and (min-width: 600px) {
   .logo {
+    max-height: 40px;
     font: 3.3rem "Arial Narrow", sans-serif; /* I picked this font because it's the closest looking 'web safe' font http://cssfontstack.com/ */
     color: #fefefe;
     text-transform: uppercase;
     letter-spacing: -4px;
+
+    > img {
+      max-height: 40px;
+    }
   }
 }
 
