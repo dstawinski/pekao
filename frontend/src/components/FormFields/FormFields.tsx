@@ -8,6 +8,7 @@ import {
   Select,
 } from "@material-ui/core";
 import * as React from "react";
+import { getFormInputs } from "../../utils/getFormInputs";
 import styles from "./FormFields.module.scss";
 
 export interface Props {
@@ -20,28 +21,35 @@ export interface State {
   selectedShopType: string;
   targetTypes: string[];
   selectedTargetType: string;
+  revenueTypes: string[];
+  selectedRevenueType: string;
 }
 
 export default class FormFields extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-
     this.state = {
       age: 10,
       shopTypes: [],
       selectedShopType: "",
       targetTypes: [],
       selectedTargetType: "",
+      revenueTypes: [],
+      selectedRevenueType: "",
     };
   }
 
-  public getFormInputs() {
+  public async getFormInputs() {
+    const response = await getFormInputs();
+    console.log(response);
     this.setState({ shopTypes: ["Typ1", "Typ2", "Typ3"] });
     this.setState({ targetTypes: ["Typ1", "Typ2", "Typ3"] });
+    this.setState({ revenueTypes: ["Typ1", "Typ2", "Typ3"] });
   }
 
   public async componentDidMount() {
     await this.getFormInputs();
+    return;
   }
 
   public render() {
@@ -65,7 +73,7 @@ export default class FormFields extends React.Component<Props, State> {
           <FormHelperText>Wybierz typ swojej działalności</FormHelperText>
         </FormControl>
         <FormControl>
-          <InputLabel htmlFor="targettypes-auto-width">Target</InputLabel>
+          <InputLabel htmlFor="targettypes-auto-width">Cel</InputLabel>
           <Select
             value={this.state.selectedTargetType}
             onChange={() => {}}
@@ -80,22 +88,19 @@ export default class FormFields extends React.Component<Props, State> {
           <FormHelperText>Wybierz swój cel</FormHelperText>
         </FormControl>
         <FormControl>
-          <InputLabel htmlFor="age-auto-width">Age</InputLabel>
+          <InputLabel htmlFor="revenue-auto-width">Obroty</InputLabel>
           <Select
-            value={this.state.age}
+            value={this.state.selectedRevenueType}
             onChange={() => {}}
-            input={<Input name="age" id="age-auto-width" />}
+            input={<Input name="revenue" id="revenue-auto-width" />}
             autoWidth
             required
           >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            {this.state.revenueTypes.map((revenueType) => (
+              <MenuItem value={revenueType}>{revenueType}</MenuItem>
+            ))}
           </Select>
-          <FormHelperText>Auto width</FormHelperText>
+          <FormHelperText>Wybierz wielkość swoich obrotów</FormHelperText>
         </FormControl>
         <Button
           variant="contained"
