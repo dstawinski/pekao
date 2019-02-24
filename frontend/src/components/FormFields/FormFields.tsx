@@ -41,7 +41,6 @@ export default class FormFields extends React.Component<Props, State> {
 
   public async getFormInputs() {
     const data = await getFormInputs();
-    console.log(data);
     this.setState({
       shopTypes: data.operation_types.map((obj: any) => obj.name),
     });
@@ -62,15 +61,6 @@ export default class FormFields extends React.Component<Props, State> {
         [name]: (event.target as any).value,
       });
     };
-  }
-
-  public async handleSubmit(e: any) {
-    await postFormData({
-      operation_type: this.state.selectedShopType,
-      profile: this.state.selectedTargetType,
-      revenue: this.state.selectedRevenueType,
-    });
-    return;
   }
 
   public render() {
@@ -127,7 +117,7 @@ export default class FormFields extends React.Component<Props, State> {
           <Link
             to={{
               pathname: "/result",
-              selections: {
+              state: {
                 operation_type: this.state.selectedShopType,
                 profile: this.state.selectedTargetType,
                 revenue: this.state.selectedRevenueType,
