@@ -57,7 +57,6 @@ export default class FormFields extends React.Component<Props, State> {
 
   public handleChange(name: string) {
     return (event: React.SyntheticEvent) => {
-      console.log(event.target);
       this.setState({
         ...this.state,
         [name]: (event.target as any).value,
@@ -124,24 +123,21 @@ export default class FormFields extends React.Component<Props, State> {
           </Select>
           <FormHelperText>Wybierz wielkość swoich obrotów</FormHelperText>
         </FormControl>
-        <Link
-          to={{
-            pathname: "/result",
-            selections: {
-              operation_type: this.state.selectedShopType,
-              profile: this.state.selectedTargetType,
-              revenue: this.state.selectedRevenueType,
-            },
-          }}
-        >
-          <Button
-            variant="contained"
-            color="secondary"
+        <div className={styles.button_container}>
+          <Link
+            to={{
+              pathname: "/result",
+              selections: {
+                operation_type: this.state.selectedShopType,
+                profile: this.state.selectedTargetType,
+                revenue: this.state.selectedRevenueType,
+              },
+            }}
             className={styles.submit_btn}
           >
             ZAPLANUJ
-          </Button>
-        </Link>
+          </Link>
+        </div>
       </div>
     );
   }
