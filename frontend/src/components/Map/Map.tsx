@@ -54,14 +54,14 @@ export default class Map extends React.Component<Props, State> {
     // el.className = styles.marker;
 
     // make a marker for each feature and add to the map
-    new mapboxgl.Marker()
+    new mapboxgl.Marker({
+      color: "#a10707",
+    })
       .setLngLat([this.props.longitude, this.props.latitude])
       .addTo(map);
   }
 
   public render() {
-    const { lng, lat, zoom } = this.state;
-
     return (
       <div className={styles.map_container}>
         <div
