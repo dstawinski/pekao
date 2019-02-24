@@ -38,9 +38,11 @@ export default class ResultView extends React.Component<Props, State> {
 
   public async componentDidMount() {
     try {
+      console.log(this.props.location);
       const response = await postFormData({
-        operation_type: (this.props.location as any).state.selectedShopType,
+        operation_type: "Clothing",
       });
+      console.log(response);
       const geoResponse = await this.state.geocodingClient
         .forwardGeocode({
           query: response.data.recommended_area,
@@ -68,7 +70,7 @@ export default class ResultView extends React.Component<Props, State> {
         />
       );
     } else if (this.state.tabValue === 1) {
-      return <Statistics/>;
+      return <Statistics />;
     }
   }
 

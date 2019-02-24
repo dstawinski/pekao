@@ -20,7 +20,7 @@ export default class Statistics extends React.Component<Props, State> {
         <div className={styles.header}>TUTAJ SĄ STATYSTYKI TWOJEJ FIRMY</div>
         <div className={styles.plot_container}>
           <img className={styles.plot} src="plot.png" />
-          <img className={styles.plot} src="plot.png" />
+          <img className={styles.plot} src="plot2.png" />
         </div>
       </div>
     );
