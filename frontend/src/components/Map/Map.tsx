@@ -1,6 +1,6 @@
 import mapboxgl from "mapbox-gl";
 import * as React from "react";
-import styles from "./Result.module.scss";
+import styles from "./Map.module.scss";
 mapboxgl.accessToken =
   "pk.eyJ1IjoiZHN0YXdpbnNraSIsImEiOiJjanNpNGc5aHYxcm1nM3lueGJoNDhsbDJ6In0.d4gFH60c4GFC1thcpUA0ug";
 
@@ -16,7 +16,7 @@ export interface State {
   zoom: number;
 }
 
-export default class Result extends React.Component<Props, State> {
+export default class Map extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -64,9 +64,6 @@ export default class Result extends React.Component<Props, State> {
 
     return (
       <div className={styles.map_container}>
-        <div className="inline-block absolute top left mt12 ml12 bg-darken75 color-white z1 py6 px12 round-full txt-s txt-bold">
-          <div>{`Longitude: ${lng} Latitude: ${lat} Zoom: ${zoom}`}</div>
-        </div>
         <div
           ref={(el) => ((this as any).mapContainer = el)}
           className={styles.map}

@@ -1,7 +1,7 @@
-import { CircularProgress } from "@material-ui/core";
+import { AppBar, CircularProgress, Tab, Tabs } from "@material-ui/core";
 import * as React from "react";
 import { postFormData } from "../../utils/postFormData";
-import Result from "../Result";
+import Map from "../Map";
 import styles from "./ResultView.module.scss";
 
 export interface Props {
@@ -13,6 +13,7 @@ export interface State {
   loading: boolean;
   latitude?: number;
   longitude?: number;
+  tabValue: number;
 }
 
 export default class ResultView extends React.Component<Props, State> {
@@ -21,6 +22,7 @@ export default class ResultView extends React.Component<Props, State> {
 
     this.state = {
       loading: true,
+      tabValue: 0,
     };
   }
 
@@ -47,13 +49,24 @@ export default class ResultView extends React.Component<Props, State> {
   public render() {
     return (
       <div className={styles.result_container}>
-        {this.state.loading ? (
-          <CircularProgress />
-        ) : (
-          <Result
+        <AppBar position="static" classes={{
+          root: styles.appbar,
+        }}>
+          <Tabs
+            value={this.state.tabValue}
+            onChange={(e, value) => this.setState({ tabValue: value })}
+          >
+            <Tab label="Mapa" />
+            <Tab label="Statystyki" />
+          </Tabs>
+        </AppBar>
+        {(this.state.tabValue === 0 && !this.state.loading) ? (
+          <Map
             longitude={this.state.longitude || 0}
             latitude={this.state.latitude || 0}
           />
+        ) : (
+          <CircularProgress />
         )}
       </div>
     );
