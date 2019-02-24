@@ -21,6 +21,12 @@ class YearlyMaxRevenue(models.Model):
     def __str__(self):
         return self.revenue
 
+class Area(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
 
 class BusinessType(models.Model):
     operation_type = models.ForeignKey(OperationType, on_delete=models.CASCADE)
