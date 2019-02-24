@@ -114,4 +114,5 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=50)),
             ],
         ),
+        migrations.RunPython(load_options, delete_options),
     ]
