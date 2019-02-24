@@ -30,9 +30,12 @@ def businesstypes_list(request):
                              'yearly_max_revenues': revenues_serializer.data}, safe=False)
 
     elif request.method == 'POST':
-        data = JSONParser().parse(request)
-        serializer = BusinessTypeSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+        # data = JSONParser().parse(request)
+        
+        json_result = {
+            'recommended_area': 'Warszawa (Ochota)',
+            'current_predicted_revenue': 143000,
+            'proposed_recommended_revenue': 211000,
+        }
+
+        return JsonResponse(json_result, status=201)
