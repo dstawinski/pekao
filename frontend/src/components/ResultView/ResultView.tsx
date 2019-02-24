@@ -39,8 +39,6 @@ export default class ResultView extends React.Component<Props, State> {
     try {
       const response = await postFormData({
         operation_type: (this.props.location as any).state.selectedShopType,
-        profile: (this.props.location as any).state.selectedTargetType,
-        revenue: (this.props.location as any).state.selectedRevenueType,
       });
       const geoResponse = await this.state.geocodingClient
         .forwardGeocode({

@@ -50,10 +50,6 @@ export default class Map extends React.Component<Props, State> {
       map.resize();
     });
 
-    // const el = document.createElement("div");
-    // el.className = styles.marker;
-
-    // make a marker for each feature and add to the map
     new mapboxgl.Marker({
       color: "#a10707",
     })
