@@ -15,19 +15,19 @@ def load_options(apps, schema_editor):
     operation_type.save()
 
     Profile = apps.get_model("eventify", "Profile")
-    profile = Profile(name='Prestige')
+    profile = Profile(name='Premium')
     profile.save()
-    profile = Profile(name='Medium')
+    profile = Profile(name='Standard')
     profile.save()
-    profile = Profile(name='Budget')
+    profile = Profile(name='Ekonomiczna')
     profile.save()
 
     YearlyMaxRevenue = apps.get_model("eventify", "YearlyMaxRevenue")
+    yearly_max_revenue = YearlyMaxRevenue(revenue=10000)
+    yearly_max_revenue.save()
     yearly_max_revenue = YearlyMaxRevenue(revenue=100000)
     yearly_max_revenue.save()
     yearly_max_revenue = YearlyMaxRevenue(revenue=1000000)
-    yearly_max_revenue.save()
-    yearly_max_revenue = YearlyMaxRevenue(revenue=10000000)
     yearly_max_revenue.save()
 
 def delete_options(apps, schema_editor):
