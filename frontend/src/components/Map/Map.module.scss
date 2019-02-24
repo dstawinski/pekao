@@ -26,5 +26,21 @@
 .header {
   z-index: 10;
   float: left;
-  position: absolute; 
+  position: absolute;
+  font-size: 3rem;
+  height: 70px;
+  color: #2c2c2c;
+  letter-spacing: -0.05em;
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  line-height: 25px;
+  justify-content: center;
+  font-family: 'Arial Narrow', sans-serif;
+  padding: 1rem;
+  max-width: 100vw;
+  font-weight: 700;
+  background-color: white;
 }
+
