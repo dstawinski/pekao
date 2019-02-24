@@ -1,5 +1,5 @@
 .plot {
-  height: 80vh;
+  max-height: 80vh !important;
 }
 
 .header {
@@ -15,10 +15,12 @@
   justify-content: center;
   font-family: 'Arial Narrow', sans-serif;
   padding: 1rem;
+  max-width: 100vw;
 }
 
 .plot_container {
   display: flex;
-  align-items: stretch;
+  flex-flow: wrap;
   justify-content: center;
+  max-width: 100vw;
 }

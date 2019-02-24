@@ -59,12 +59,17 @@ export default class Map extends React.Component<Props, State> {
 
   public render() {
     return (
-      <div className={styles.map_container}>
-        <div
-          ref={(el) => ((this as any).mapContainer = el)}
-          className={styles.map}
-        />
-      </div>
+      <React.Fragment>
+        <div className={styles.header}>
+          REKOMENDOWANE MIEJSCE NA TWÓJ BIZNES
+        </div>
+        <div className={styles.map_container}>
+          <div
+            ref={(el) => ((this as any).mapContainer = el)}
+            className={styles.map}
+          />
+        </div>
+      </React.Fragment>
     );
   }
 }

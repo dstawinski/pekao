@@ -50,7 +50,12 @@ export default class ResultView extends React.Component<Props, State> {
         })
         .send();
       const match = (geoResponse as any).body;
-      const coords = match.features[0].center;
+      let coords;
+      if (response.data.recommended_area !== "Warszawa (Wola)") {
+        coords = match.features[0].center;
+      } else {
+        coords = [20.98429, 52.23243];
+      }
       return this.setState({
         loading: false,
         latitude: coords[1],
