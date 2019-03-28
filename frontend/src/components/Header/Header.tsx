@@ -25,9 +25,9 @@ export default class Header extends React.Component<Props, State> {
         <Toolbar classes={{ root: styles.header }}>
           {/* <div className={styles.main_title}>Centrum wiedzy PEKAO</div> */}
           <div className={styles.logo}>
-            <img src="logo.jpg"></img>
+              <img src="logo.jpg" />
           </div>
-          <div className={styles.authorship}>by d2VjYW1lZm9yZm9vZC4=</div>
+          {/* <div className={styles.authorship}>by d2VjYW1lZm9yZm9vZC4=</div> */}
         </Toolbar>
       </AppBar>
     );

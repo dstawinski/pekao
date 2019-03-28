@@ -10,6 +10,7 @@
   color: white;
   max-height: 64px;
   padding: 0px !important;
+  justify-content: center;
 }
 
 .main_title {
@@ -37,7 +38,6 @@
 
 @media only screen and (min-width: 600px) {
   .logo {
-    max-height: 40px;
     font: 3.3rem "Arial Narrow", sans-serif; /* I picked this font because it's the closest looking 'web safe' font http://cssfontstack.com/ */
     color: #fefefe;
     text-transform: uppercase;
